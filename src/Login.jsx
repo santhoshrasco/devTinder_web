@@ -4,14 +4,14 @@ import NavBar from "./NavBar";
 import axios from "axios";
 
 const Login = () => {
-  const [emailID, setEmailID] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailID, setEmailID] = useState("santhoshkumar4270@gmail.com");
+  const [password, setPassword] = useState("Santhosh@4270");
   const handleLogin = async () => {
     try {
       const res = await axios.post("http://localhost:3000/login", {
         emailID,
         password,
-      });
+      },{withCredentials: true});
     } catch (error) {
       console.error(err);
     }
@@ -19,7 +19,7 @@ const Login = () => {
 
   return (
     <div>
-      {/* <NavBar /> */}
+      <NavBar />
       <div className="flex justify-center my-15">
         <div className="card bg-base-300 w-96 shadow-sm justify-center">
           <div className="card-body">
@@ -29,7 +29,7 @@ const Login = () => {
                 <legend className="fieldset-legend">Mail Id</legend>
                 <input
                   type="text"
-                  value={MailId}
+                  value={emailID}
                   className="input"
                   placeholder="Type here"
                   onChange={(e) => setEmailID(e.target.value)}
@@ -52,7 +52,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
