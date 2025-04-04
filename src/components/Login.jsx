@@ -16,7 +16,7 @@ const Login = () => {
   const handleLogin = async () => {
 
     try {
-      const res = await axios.post( BASE_URL , {
+      const res = await axios.post( BASE_URL  + "/login", {
         emailID,
         password,
       },{withCredentials: true});
@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <div className="flex justify-center my-15">
         <div className="card bg-base-300 w-96 shadow-sm justify-center">
           <div className="card-body">
@@ -46,7 +46,7 @@ const Login = () => {
                   onChange={(e) => setEmailID(e.target.value)}
                 />
                 <fieldset className="fieldset">
-                  <legend className="fieldset-legend">Password</legend>
+                  <legend className="fieldset-legend ">Password</legend>
                   <input
                     type="text"
                     value={password}
